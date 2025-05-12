@@ -52,6 +52,20 @@ namespace StudentApp
                 MessageBox.Show("Wybierz pola do usunięcia.");
             }
         }
+        private void Edit_click(object sender, RoutedEventArgs e)
+        {
+            if(mainList.SelectedItem is Person selected)
+            {
+                Window1 e_window = new Window1();
+                e_window.LoadData(selected);
+                if (e_window.ShowDialog() == true)
+                {
+                    int i = mainList.Items.IndexOf(selected);
+                    mainList.Items[i]= e_window.Student;
+                }
+            }
+                ///https://learn.microsoft.com/pl-pl/dotnet/csharp/language-reference/operators/type-testing-and-cast    is uzwywam jako sprawdzenie czy jest to typu 
+        }
         private void Open_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();

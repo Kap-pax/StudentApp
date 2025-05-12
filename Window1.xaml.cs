@@ -64,6 +64,21 @@ namespace StudentApp
 
             this.DialogResult = true;
         }
+        /// <summary>
+        /// metoda wczytuje dane z listy do pol widocznych w tym oknie
+        public void LoadData(Person student)
+        {
+            txtPesel.Text = student.m_PESEL;
+            txtName.Text = student.m_Name;
+            txtSecName.Text = student.m_SecName;
+            txtSurname.Text = student.m_Surname;
+            txtDateOfBirth.Text = student.m_DateOfBirth;
+            txtNumber.Text = student.m_PhoneNumber;
+            txtLocation.Text = student.m_Location;
+            txtCity.Text = student.m_City;
+            txtCode.Text = student.m_Code;
+        }
+
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
@@ -183,22 +198,11 @@ namespace StudentApp
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
         /// metoda ponizej sprawdza poprawnoc numeru pesel ( daty, czy tylko liczby, czy ma 11 znakow)  i zwraca true lub false w zaleznosci
         /// 
         private static bool ValidatePesel(string pesel, string date)
         {
-
+            /// dlaczego long? bo int nie dziala, 1.5h nad tym siedzialem i long dziala wiec nie wnikam...
             if(pesel.Length!=11 || !long.TryParse(pesel, out _))
             {
                 return false;

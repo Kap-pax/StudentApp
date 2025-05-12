@@ -18,6 +18,7 @@
             <MenuItem Header="Edytuj">
                 <MenuItem Header="Nowy" Click="New_Click"/>
                 <MenuItem Header="Usuń zaznaczone" Click="Delete_Click"/>
+                <MenuItem Header="Edytuj" Click="Edit_click"/>
             </MenuItem>
         </Menu>
         <ListView x:Name="mainList" Margin="0,20,0,20" SelectionMode="Extended">

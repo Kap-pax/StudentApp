@@ -29,7 +29,28 @@ namespace StudentApp
         private void New_Click(object sender, RoutedEventArgs e)
         {
             Window1 AddStudent = new Window1();
-            AddStudent.ShowDialog();
+            if (AddStudent.ShowDialog()==true)
+            {
+                Person a_Student = AddStudent.Student;
+                mainList.Items.Add(a_Student);
+                
+            }
+        }
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+            
+            if(mainList.SelectedItems != null)
+            {
+                for (int i = mainList.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    mainList.Items.Remove(mainList.SelectedItems[i]);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wybierz pola do usunięcia.");
+            }
         }
         private void Open_Click(object sender, RoutedEventArgs e)
         {
@@ -51,7 +72,12 @@ namespace StudentApp
                         m_PESEL = parts.ElementAtOrDefault(0),
                         m_Name = parts.ElementAtOrDefault(1),
                         m_SecName = parts.ElementAtOrDefault(2),
-                        m_Surname = parts.ElementAtOrDefault(3)
+                        m_Surname = parts.ElementAtOrDefault(3),
+                        m_DateOfBirth = parts.ElementAtOrDefault(4),
+                        m_PhoneNumber = parts.ElementAtOrDefault(5),
+                        m_Location = parts.ElementAtOrDefault(6),
+                        m_City = parts.ElementAtOrDefault(7),
+                        m_Code = parts.ElementAtOrDefault(8)
                     };
                     mainList.Items.Add(Student);
                 }
